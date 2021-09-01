@@ -13,7 +13,7 @@ public class Habilidad {
 
     @Override
     public String toString() {
-        return "La habilidad es" descripcionHabilidad ;
+        return "La habilidad es" + descripcionHabilidad ;
     }
 
     public Habilidad(String descripcionHabilidad) {
