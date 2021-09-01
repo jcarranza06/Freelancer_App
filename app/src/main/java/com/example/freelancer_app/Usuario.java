@@ -1,5 +1,5 @@
 public class Usuario{
-    int usuarioId;
+    int id;
     String nombre;
     String clave;
     String correo;
@@ -8,11 +8,11 @@ public class Usuario{
     //img imagen (?)
 
 
-    public int getUsuarioId() {
+    public int getId() {
         return this.id;
     }
 
-    public void setUsuarioId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -58,8 +58,8 @@ public class Usuario{
 
 
 
-    public Usuario(int id, String nombre, String clave, String correo, String pais, String descripción) {
-        this.id = id;
+    public Usuario(int idc, String nombre, String clave, String correo, String pais, String descripción) {
+        this.id = idc;
         this.nombre = nombre;
         this.clave = clave;
         this.correo = correo;
