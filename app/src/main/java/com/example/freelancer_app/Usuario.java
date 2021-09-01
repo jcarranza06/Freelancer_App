@@ -1,10 +1,12 @@
+package com.example.freelancer_app;
+
 public class Usuario{
     int id;
     String nombre;
     String clave;
     String correo;
     String pais;
-    String descripción;
+    String descripcion;
     //img imagen (?)
 
 
@@ -48,23 +50,23 @@ public class Usuario{
         this.pais = pais;
     }
 
-    public String getDescripción() {
-        return this.descripción;
+    public String getDescripcion() {
+        return this.descripcion;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescripcion(String descripción) {
+        this.descripcion = descripcion;
     }
 
 
 
-    public Usuario(int idc, String nombre, String clave, String correo, String pais, String descripción) {
+    public Usuario(int idc, String nombre, String clave, String correo, String pais, String descripcion) {
         this.id = idc;
         this.nombre = nombre;
         this.clave = clave;
         this.correo = correo;
         this.pais = pais;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
     }
 
 
@@ -77,7 +79,7 @@ public class Usuario{
             ", clave='" + getClave() + "'" +
             ", correo='" + getCorreo() + "'" +
             ", pais='" + getPais() + "'" +
-            ", descripción='" + getDescripción() + "'" +
+            ", descripción='" + getDescripcion() + "'" +
             "}";
     }
 
