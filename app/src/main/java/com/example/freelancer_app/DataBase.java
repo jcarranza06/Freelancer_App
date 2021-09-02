@@ -1,5 +1,7 @@
 package com.example.freelancer_app;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -29,16 +31,19 @@ import java.util.Scanner;
 */
 
 public class DataBase {
+    static String resultado;
+    static Gson gson = new Gson();
     public static final String BaseURL="https://basededatos-proyectopoo.000webhostapp.com/";
-    String URL;
-    InputStream response;
-    URLConnection connection;
-    String responseBody;
+    static String URL;
+    static InputStream response;
+    static URLConnection connection;
+    static String responseBody;
 
-    public String makeRequest(String url) {
+
+    public static String makeRequest(String url) {
         response=null;
         connection=null;
-        responseBody=null;
+        responseBody="funcionando";
         String charset = "UTF-8";
         try {
             connection = new URL(url).openConnection();
@@ -64,61 +69,69 @@ public class DataBase {
         super();
     }
 
-    public String getUsuarios() {
+    public static Usuario[] getUsuarios() {
         URL=BaseURL+"getUsuarios.php";
-        return makeRequest(URL);
+        resultado=makeRequest(URL);
+        Usuario[] users=gson.fromJson(resultado , Usuario[].class);
+        return users;
     }
-    public String getUsuarioById(int id){
+    public static Usuario getUsuarioById(int id){
         URL=BaseURL+"getUsuarioById.php?id="+id;
-
-        return makeRequest(URL);
+        resultado = makeRequest(URL);
+        Usuario[] users=gson.fromJson(resultado , Usuario[].class);
+        return users[0];
     }
-    public String getUsuarioByEmail(String correo){
+    public static Usuario getUsuarioByEmail(String correo){
         URL=BaseURL+"getUsuarioByEmail.php?correo="+correo;
-
-        return makeRequest(URL);
+        resultado = makeRequest(URL);
+        Usuario[] users=gson.fromJson(resultado , Usuario[].class);
+        return users[0];
     }
-    public String getServicios(){
+    public static Servicio[] getServicios(){
         URL=BaseURL+"getServicios.php";
-
-        return makeRequest(URL);
+        resultado = makeRequest(URL);
+        Servicio[] servicios=gson.fromJson(resultado , Servicio[].class);
+        return servicios;
     }
-    public String getServicioById(int id){
+    public static Servicio getServicioById(int id){
         URL=BaseURL+"getServicioById.php?id="+id;
-
-        return makeRequest(URL);
+        resultado = makeRequest(URL);
+        Servicio[] servicios=gson.fromJson(resultado , Servicio[].class);
+        return servicios[0];
     }
-    public String getServicioByUserId(int idPropietario){
+    public static Servicio getServicioByUserId(int idPropietario){
         URL=BaseURL+"getServicioByUserId.php?idPropietario="+idPropietario;
+        resultado = makeRequest(URL);
+        Servicio[] servicios=gson.fromJson(resultado , Servicio[].class);
 
-        return makeRequest(URL);
+        return servicios[0];
     }
-    public String addUsuario(String nombre, String clave, String correo,String pais,String descripcion) {
+    public static String addUsuario(String nombre, String clave, String correo,String pais,String descripcion) {
         URL=BaseURL+"agregarUsuario.php?nombre="+nombre+"&clave="+clave+"&correo="+correo+"&pais="+pais+"&descripcion="+descripcion;
 
         return makeRequest(URL);
     }
-    public String addServicio(int idPropietario, int calificacion, String descripcion,int plazo,int precio, String titulo) {
+    public static String addServicio(int idPropietario, int calificacion, String descripcion,int plazo,int precio, String titulo) {
         URL=BaseURL+"agregarServicio.php?idPropietario="+idPropietario+"&calificacion="+calificacion+"&descripcion="+descripcion+"&plazo="+plazo+"&precio="+precio+"&titulo="+ titulo;
 
         return makeRequest(URL);
     }
-    public String eliminarUsuario(int id) {
+    public static String eliminarUsuario(int id) {
         URL=BaseURL +"eliminarUsuario.php?id="+id;
 
         return makeRequest(URL);
     }
-    public String eliminarServicio(int id) {
+    public static String eliminarServicio(int id) {
         URL=BaseURL +"eliminarServicio.php?id="+id;
 
         return makeRequest(URL);
     }
-    public String modificarUsuario(int id,String nombre, String clave, String correo,String pais,String descripcion) {
+    public static String modificarUsuario(int id,String nombre, String clave, String correo,String pais,String descripcion) {
         URL=BaseURL+"modificarUsuario.php?id="+id+"&nombre="+nombre+"&clave="+clave+"&correo="+correo+"&pais="+pais+"&descripcion="+descripcion;
 
         return makeRequest(URL);
     }
-    public String modificarServicio(int id,int idPropietario, int calificacion, String descripcion,int plazo,int precio, String titulo) {
+    public static String modificarServicio(int id,int idPropietario, int calificacion, String descripcion,int plazo,int precio, String titulo) {
         URL=BaseURL+"modificarServicio.php?id="+id+"&idPropietario="+idPropietario+"&calificacion="+calificacion+"&descripcion="+descripcion+"&plazo="+plazo+"&precio="+precio+"&titulo="+titulo;
         return makeRequest(URL);
     }

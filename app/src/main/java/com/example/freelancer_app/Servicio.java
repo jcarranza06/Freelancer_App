@@ -3,12 +3,12 @@ package com.example.freelancer_app;
 import java.util.ArrayList;
 
 
-public class Servicios {
+public class Servicio {
     ArrayList<Habilidad>  listaServicios;
     int idPropietario;
-    int idServicio;
+    int id;
     int calificacion;
-    String descripcionServicio;
+    String descripcion;
     int plazo;
     int precio;
     String titulo;
@@ -30,11 +30,11 @@ public class Servicios {
     }
 
     public int getIdServicio() {
-        return idServicio;
+        return id;
     }
 
     public void setIdServicio(int idServicio) {
-        this.idServicio = idServicio;
+        this.id = idServicio;
     }
 
     public int getCalificacion() {
@@ -46,11 +46,11 @@ public class Servicios {
     }
 
     public String getDescripcionServicio() {
-        return descripcionServicio;
+        return descripcion;
     }
 
-    public void setDescripcionServicio(String descripcionServicio) {
-        this.descripcionServicio = descripcionServicio;
+    public void setDescripcionServicio(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getPlazo() {
@@ -79,18 +79,20 @@ public class Servicios {
 
     @Override
     public String toString() {
-        return "El titulo del servicio es: "+ titulo+"\n"+"El id del servicio es: "+idServicio+"\n"+
+        return "El titulo del servicio es: "+ titulo+"\n"+"El id del servicio es: "+id+"\n"+
                 "El id del propietario es: "+idPropietario +"\n"+"Los servicios que ofrece son: "+
         listaServicios+"\n"+ "La calificacion es: " + calificacion+"\n"+"Su descripcion es: "
-                + descripcionServicio +"\n"+ "El plazo es:  " + plazo +"\n"+ "El precio es :" + precio+"\n";
+                + descripcion+"\n"+ "El plazo es:  " + plazo +"\n"+ "El precio es :" + precio+"\n";
     }
 
 
-    public Servicios(ArrayList<Habilidad> listaServicios, int calificacion, String descripcionServicio, int plazo,
-                     int precio, String titulo){
+    public Servicio(ArrayList<Habilidad> listaServicios, int calificacion, String descripcionServicio, int plazo,
+                    int precio, String titulo, int idPropietario, int id){
+        this.id=id;
+        this.idPropietario=idPropietario;
         this.listaServicios = listaServicios;
         this.calificacion = calificacion;
-        this.descripcionServicio = descripcionServicio;
+        this.descripcion = descripcionServicio;
         this.plazo = plazo;
         this.precio = precio;
         this.titulo = titulo;
