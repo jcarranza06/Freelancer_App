@@ -2,6 +2,7 @@ package com.example.freelancer_app;
 
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,10 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
+    SearchView buscador;
     ArrayList<String> datos;
     RecyclerView recycler;
+    Adaptador_servicio_layout adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         }
         recycler=(RecyclerView) findViewById(R.id.panelShowServicios);
         recycler.setLayoutManager(new LinearLayoutManager(this));
-
+        buscador=(SearchView) findViewById(R.id.buscador);
+        buscador.setOnQueryTextListener(this);
         Servicio[] servicios=DataBase.getServicios();
         /*for (int i=0;i<4;i++) {
             DataBase.addServicio(2, 3, "vendo zapatos azules", 8, 45000, "venta de zapatos");
@@ -45,7 +49,18 @@ public class MainActivity extends AppCompatActivity {
         for (int i =0;i<106;i++){
             datos.add("hola "+i);
         }
-        Adaptador_servicio_layout adaptador=new Adaptador_servicio_layout(servicios);
+        adaptador=new Adaptador_servicio_layout(servicios);
         recycler.setAdapter(adaptador);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String s) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String s) {
+        adaptador.buscar(s);
+        return false;
     }
 }
