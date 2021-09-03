@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 abrirCrearActivity();
             }
         });
+        Intent abrirLogin = new Intent(MainActivity.this, LoginCuenta.class);
+        startActivity(abrirLogin);
     }
 
     public void abrirCrearActivity(){

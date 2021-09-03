@@ -30,7 +30,11 @@
             android:exported="true">
 
         </activity>
+        <activity
+            android:name=".LoginCuenta"
+            android:exported="true">
 
+        </activity>
     </application>
 
 </manifest>
