@@ -1,34 +1,42 @@
-package com.example.actividades;
+package com.example.freelancer_app;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.method.ScrollingMovementMethod;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.actividades.ui.main.SectionsPagerAdapter;
-import com.example.actividades.databinding.ActivityMainBinding;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MostrarServicio extends AppCompatActivity {
 
     TextView textView3;
-
+    TextView tituloMostrar;
+    Button btnAtrasMostrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar);
 
+        Bundle parametros= this.getIntent().getExtras();
+
         textView3 = findViewById(R.id.textView3);
+        tituloMostrar=(TextView)findViewById(R.id.tituloMostrar);
+        instanciarbtnAtrasMostrar();
+
+        if(parametros!=null){
+            tituloMostrar.setText(parametros.getString("titulo"));
+        }
 
         textView3.setMovementMethod(new ScrollingMovementMethod());
+    }
+    public void instanciarbtnAtrasMostrar(){
+        btnAtrasMostrar=(Button) findViewById(R.id.btnAtrasMostrar);
+        btnAtrasMostrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

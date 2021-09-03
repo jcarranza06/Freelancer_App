@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/juane/AndroidStudioProjects/Freelancer_App/app/src/main/res/layout/action_bar_custom.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/juane/AndroidStudioProjects/Freelancer_App/app/src/main/res/layout/activity_crear.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/juane/AndroidStudioProjects/Freelancer_App/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/juane/AndroidStudioProjects/Freelancer_App/app/src/main/res/layout/activity_mostrar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/juane/AndroidStudioProjects/Freelancer_App/app/src/main/res/layout/servicio_layout.xml" value="0.25" />
       </map>
     </option>

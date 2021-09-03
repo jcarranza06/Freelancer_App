@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tituloMostrar"
         android:layout_width="match_parent"
         android:layout_height="89dp"
         android:background="#009688"
@@ -85,10 +85,10 @@
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/tituloMostrar" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCrear"
         android:layout_width="135dp"
         android:layout_height="55dp"
         android:layout_marginStart="139dp"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnAtrasMostrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="161dp"
@@ -109,6 +109,6 @@
         android:text="Atrás"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCrear" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

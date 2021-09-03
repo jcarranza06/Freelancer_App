@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCrear"
         android:layout_width="187dp"
         android:layout_height="61dp"
         android:text="Crear"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.777" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnCancelar"
         android:layout_width="183dp"
         android:layout_height="58dp"
         android:text="Cancelar"
@@ -44,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/descripcion"
             android:layout_width="match_parent"
             android:layout_height="198dp"
             android:background="#FFE2FDFB"
@@ -63,6 +64,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#E2FDFB"
@@ -82,6 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/plazo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFE2FDFB"
@@ -100,6 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/precio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFE2FDFB"
