@@ -20,4 +20,8 @@ public class Sesion {
         Sesion.usuario = usuario;
     }
 
+    public Sesion(Usuario usuario) {
+        this.sesion=true;
+        this.usuario= usuario;
+    }
 }

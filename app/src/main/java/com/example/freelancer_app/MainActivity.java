@@ -19,11 +19,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     RecyclerView recycler;
     Adaptador_servicio_layout adaptador;
     Servicio[] servicios;
+    Usuario[] usuarios;
+    Sesion sesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         if (android.os.Build.VERSION.SDK_INT > 9)
         {
@@ -31,6 +35,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+        servicios=DataBase.getServicios();
+        usuarios=DataBase.getUsuarios();
+
+        definirSesion();
         setBuscador();
         setRecycler();
 
@@ -51,7 +59,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public void setBuscador() {
         buscador=(SearchView) findViewById(R.id.buscador);
         buscador.setOnQueryTextListener(this);
-        servicios=DataBase.getServicios();
+
+
     }
 
     @Override
@@ -78,7 +87,15 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         });
         recycler.setAdapter(adaptador);
     }
+    public void definirSesion(){
+        /*try{leer
 
+        }catch (Exception e){
+
+        }*/
+        Usuario a=usuarios[0];
+        sesion = new Sesion(a);
+    }
     public void abrirActivityServicioEspecifico(Servicio servicio){
         Intent abrirEspecifico = new Intent(MainActivity.this, MostrarServicio.class);
         Bundle parametros =new Bundle();
@@ -92,5 +109,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         abrirEspecifico.putExtras(parametros);
         startActivity(abrirEspecifico);
+    }
+    public Sesion getSesion(){
+        return this.sesion;
     }
 }
