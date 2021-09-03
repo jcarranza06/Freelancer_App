@@ -2,6 +2,7 @@ package com.example.freelancer_app;
 
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.View;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             datos.add("hola "+i);
         }
         adaptador=new Adaptador_servicio_layout(servicios);
+        adaptador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println(adaptador.getDatos(recycler.getChildAdapterPosition(view)));
+            }
+        });
         recycler.setAdapter(adaptador);
     }
 

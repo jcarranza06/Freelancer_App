@@ -11,10 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Adaptador_servicio_layout extends RecyclerView.Adapter<Adaptador_servicio_layout.vista>{
+public class Adaptador_servicio_layout extends RecyclerView.Adapter<Adaptador_servicio_layout.vista> implements View.OnClickListener{
 
     ArrayList<Servicio> datos;
     ArrayList<Servicio> datosBase;
+    View.OnClickListener listener;
+
+    public Servicio getDatos(int i){
+        return datos.get(i);
+    }
 
     public ArrayList<Servicio> getDatos() {
         return datos;
@@ -24,10 +29,16 @@ public class Adaptador_servicio_layout extends RecyclerView.Adapter<Adaptador_se
         this.datos = new ArrayList<>(Arrays.asList(datos));
     }
 
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener=listener;
+
+    }
+
     @NonNull
     @Override
     public vista onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.servicio_layout, null, false);
+        view.setOnClickListener(this);
         return new vista(view);
     }
 
@@ -42,19 +53,34 @@ public class Adaptador_servicio_layout extends RecyclerView.Adapter<Adaptador_se
         return datos.size();
     }
 
+    @Override
+    public void onClick(View view) {
+        if(listener!=null){
+            listener.onClick(view);
+        }
+    }
+
     public class vista extends RecyclerView.ViewHolder {
         TextView titulo;
         TextView descripcion;
+        TextView precio;
+        Servicio servicio;
 
+        public Servicio getServicio(){
+            return this.servicio;
+        }
         public vista(@NonNull View itemView) {
             super(itemView);
             titulo =(TextView) itemView.findViewById(R.id.titulo);
             descripcion =(TextView) itemView.findViewById(R.id.descripcion);
+            precio=(TextView) itemView.findViewById(R.id.precio);
         }
 
         public void definirDatos(int s) {
             titulo.setText(datos.get(s).titulo);
             descripcion.setText(datos.get(s).descripcion);
+            precio.setText("$"+datos.get(s).precio);
+            servicio=datos.get(s);
 
         }
     }
