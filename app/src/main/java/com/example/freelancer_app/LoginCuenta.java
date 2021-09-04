@@ -36,6 +36,7 @@ public class LoginCuenta extends AppCompatActivity {
                 System.out.println(clave.getText().toString());
 
                 if (usuario.clave.equals(clave.getText().toString())){
+                    Sesion.setUsuario(usuario);
                     finish();
                 }
             }

@@ -20,6 +20,7 @@
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:isIndicator="true"
         android:numStars="5"
         android:stepSize="0.5"
         android:layout_alignParentStart="true"/>
@@ -32,38 +33,38 @@
         android:textColor="#673AB7" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/plazoMostrar"
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:text="Plazo"
         android:textColor="#673AB7" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/precioMostrar"
         android:layout_width="match_parent"
         android:layout_height="63dp"
         android:text="Precio"
         android:textColor="#673AB7" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/autorMostrar"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:text="Autor"
         android:textColor="#673AB7" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/emailMostrar"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:text="Correo Electrónico"
         android:textColor="#673AB7" />
 
     <Button
-        android:id="@+id/btnCrear"
+        android:id="@+id/btnCalificar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Solicitar" />
+        android:text="Calificar" />
 
     <Button
         android:id="@+id/btnAtrasMostrar"
