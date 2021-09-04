@@ -1,5 +1,6 @@
 package com.example.freelancer_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -41,8 +42,21 @@ public class LoginCuenta extends AppCompatActivity {
 
 
         });
+        crearCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirCrearUsuario();
+                finish();
+            }
+        });
 
 
+
+
+    }
+    public void abrirCrearUsuario(){
+        Intent abrirCrearU = new Intent(LoginCuenta.this , CrearUsuario.class);
+        startActivity(abrirCrearU);
     }
 
 

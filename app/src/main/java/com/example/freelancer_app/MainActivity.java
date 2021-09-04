@@ -95,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }catch (Exception e){
 
         }*/
-        Usuario a=usuarios[0];
-        sesion = new Sesion(a);
+        //Usuario a=usuarios[0];
+        //sesion = new Sesion(a);
     }
     public void abrirActivityServicioEspecifico(Servicio servicio){
         Intent abrirEspecifico = new Intent(MainActivity.this, MostrarServicio.class);
