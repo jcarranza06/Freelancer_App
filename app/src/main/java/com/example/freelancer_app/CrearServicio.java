@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,15 +44,36 @@ public class CrearServicio extends AppCompatActivity {
             public void onClick(View view) {
                 int id_int = Sesion.getUsuario().id;
                 int calificacion_int = 0;
-                String titulo_string = titulo.getText().toString();
-                String descripcion_string = descripcion.getText().toString();
-                int plazo_string = Integer.valueOf(plazo.getText().toString());
-                int precio_string = Integer.valueOf(precio.getText().toString());
+                String titulo_string = "";
+                String descripcion_string = "";
+                int plazo_string = -1;
+                int precio_string = -1;
+                try {
+                    id_int = Sesion.getUsuario().id;
+                    calificacion_int = 0;
+                    titulo_string = titulo.getText().toString();
+                    descripcion_string = descripcion.getText().toString();
+                    plazo_string = Integer.valueOf(plazo.getText().toString());
+                    precio_string = Integer.valueOf(precio.getText().toString());
+                }
+                catch (Exception e){
+                    Toast notificacionServicio = Toast.makeText(getApplicationContext(),
+                            "Llene todos los espacios", Toast.LENGTH_SHORT);
+                    notificacionServicio.show();
+                }
 
-                if ((!titulo_string.equalsIgnoreCase(""))&&(!descripcion_string.equalsIgnoreCase(""))&&(!plazo.getText().toString().equalsIgnoreCase(""))&&(!precio.getText().toString().equalsIgnoreCase(""))&&(!descripcion_string.equalsIgnoreCase(""))){
+
+                if ((!titulo_string.equalsIgnoreCase(""))&&(!descripcion_string.equalsIgnoreCase(""))&&(!plazo.getText().toString().equalsIgnoreCase(""))&&(!precio.getText().toString().equalsIgnoreCase(""))&&(!descripcion_string.equalsIgnoreCase(""))&&(plazo_string>0)&&(precio_string>0)){
                     System.out.println(DataBase.addServicio(id_int, calificacion_int, descripcion_string, plazo_string, precio_string, titulo_string));
+                    Toast notificacionServicio = Toast.makeText(getApplicationContext(),
+                                    "Servicio creado", Toast.LENGTH_SHORT);
+                    notificacionServicio.show();
                     finish();
                 }else{
+                    Toast notificacionServicio = Toast.makeText(getApplicationContext(),
+                            "Llene todos los espacios", Toast.LENGTH_SHORT);
+                    notificacionServicio.show();
+                    //System.out.println("fallido");
                 }
             }
         });

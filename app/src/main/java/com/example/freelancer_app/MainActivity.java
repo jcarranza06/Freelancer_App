@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     Servicio[] servicios;
     Usuario[] usuarios;
     Sesion sesion;
+    TextView textoBienvenida;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +37,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+
         servicios=DataBase.getServicios();
         usuarios=DataBase.getUsuarios();
 
         definirSesion();
         setBuscador();
         setRecycler();
-
+        textoBienvenida= (TextView)findViewById(R.id.textoBienvenida);
         FloatingActionButton btnAgregar =findViewById(R.id.btnNuevo);
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,8 +52,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 abrirCrearActivity();
             }
         });
-        Intent abrirLogin = new Intent(MainActivity.this, LoginCuenta.class);
-        startActivity(abrirLogin);
+
+        try{
+            textoBienvenida.setText("bienvenido: "+Sesion.getUsuario().nombre);
+        }catch (Exception e){
+
+        }
     }
 
     public void abrirCrearActivity(){
@@ -63,6 +70,27 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         buscador.setOnQueryTextListener(this);
 
 
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        System.out.println("de vuelta //////////////////////");
+        try{
+            textoBienvenida.setText("bienvenido: "+Sesion.getUsuario().nombre);
+            servicios=DataBase.getServicios();
+            usuarios=DataBase.getUsuarios();
+            adaptador=new Adaptador_servicio_layout(servicios);
+            adaptador.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    abrirActivityServicioEspecifico(adaptador.getDatos(recycler.getChildAdapterPosition(view)));
+                    System.out.println(adaptador.getDatos(recycler.getChildAdapterPosition(view)));
+                }
+            });
+            recycler.setAdapter(adaptador);
+        }catch (Exception e){
+
+        }
     }
 
     @Override
@@ -90,11 +118,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         recycler.setAdapter(adaptador);
     }
     public void definirSesion(){
-        /*try{leer
+        /*try{
+            System.out.println("inicio serializable");
+            ObjectInputStream inputS = new ObjectInputStream(new FileInputStream("sesion.obj"));
+            Sesion.setUsuario((Usuario)inputS.readObject());
+            System.out.println("fin serializable");
 
-        }catch (Exception e){
-
-        }*/
+        }catch (Exception e){*/
+            Intent abrirLogin = new Intent(MainActivity.this, LoginCuenta.class);
+            startActivity(abrirLogin);
+        //}
         //Usuario a=usuarios[0];
         //sesion = new Sesion(a);
     }
@@ -115,4 +148,5 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public Sesion getSesion(){
         return this.sesion;
     }
+
 }

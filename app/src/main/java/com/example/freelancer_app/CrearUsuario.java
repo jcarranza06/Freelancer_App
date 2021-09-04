@@ -1,12 +1,10 @@
 package com.example.freelancer_app;
 
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,21 +48,30 @@ public class CrearUsuario extends AppCompatActivity {
         continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nombre_string = nombre.getText().toString();
-                String correo_string = correo.getText().toString();
-                String clave_string = clave.getText().toString();
-                String pais_string = pais.getText().toString();
-                String descripcion_string = descripcion.getText().toString();
-                if ((!nombre_string.equalsIgnoreCase(""))&&(!correo_string.equalsIgnoreCase(""))&&(!clave_string.equalsIgnoreCase(""))&&(!pais_string.equalsIgnoreCase(""))&&(!descripcion_string.equalsIgnoreCase(""))&&terminosCondiciones.isChecked()){
-                    System.out.println(DataBase.addUsuario(nombre_string, clave_string, correo_string, pais_string, descripcion_string));
-                    Usuario usuario = DataBase.getUsuarioByEmail(correo_string);
-                    Sesion.setSesion(true);
-                    Sesion.setUsuario(usuario);
-                    finish();
+                try{
+                    String nombre_string = nombre.getText().toString();
+                    String correo_string = correo.getText().toString();
+                    String clave_string = clave.getText().toString();
+                    String pais_string = pais.getText().toString();
+                    String descripcion_string = descripcion.getText().toString();
+                    Usuario user = new Usuario(nombre_string,clave_string,correo_string,pais_string,descripcion_string);
+                    if ((!nombre_string.equalsIgnoreCase(""))&&(!correo_string.equalsIgnoreCase(""))&&(!clave_string.equalsIgnoreCase(""))&&(!pais_string.equalsIgnoreCase(""))&&(!descripcion_string.equalsIgnoreCase(""))&&terminosCondiciones.isChecked()){
+                        System.out.println(DataBase.addUsuario(nombre_string, clave_string, correo_string, pais_string, descripcion_string));
+                        Usuario usuario = DataBase.getUsuarioByEmail(correo_string);
+                        Sesion.setSesion(true);
+                        Sesion.setUsuario(usuario);
+                        finish();
 
-                }else{
-                    //Toast.makeText(null,"Complete todos los campos",Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast notificacionServicio = Toast.makeText(getApplicationContext(),
+                                "Incorrecto", Toast.LENGTH_SHORT);
+                        notificacionServicio.show();                    }
+                }catch (Exception e){
+                    Toast notificacionServicio = Toast.makeText(getApplicationContext(),
+                            "Incorrecto", Toast.LENGTH_SHORT);
+                    notificacionServicio.show();
                 }
+
             }
         });
 

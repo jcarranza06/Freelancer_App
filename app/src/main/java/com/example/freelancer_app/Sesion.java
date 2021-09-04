@@ -1,6 +1,8 @@
 package com.example.freelancer_app;
 
-public class Sesion {
+import java.io.Serializable;
+
+public class Sesion implements Serializable {
     static private Boolean sesion;
     static private Usuario usuario;
 

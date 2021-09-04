@@ -1,6 +1,8 @@
 package com.example.freelancer_app;
 
-public class Usuario{
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     int id;
     String nombre;
     String clave;
@@ -68,7 +70,13 @@ public class Usuario{
         this.pais = pais;
         this.descripcion = descripcion;
     }
-
+    public Usuario( String nombre, String clave, String correo, String pais, String descripcion) {
+        this.nombre = nombre;
+        this.clave = clave;
+        this.correo = correo;
+        this.pais = pais;
+        this.descripcion = descripcion;
+    }
 
 
     @Override

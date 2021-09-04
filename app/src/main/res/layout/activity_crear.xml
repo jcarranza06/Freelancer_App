@@ -4,67 +4,77 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textBanner"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="99dp"
-        android:background="#5700F3"
-        android:gravity="center"
-        android:text="Nuevo Servicio"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold|italic" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:ems="10"
-        android:hint="Título"
-        android:inputType="textPersonName"
-        android:textColorHint="#673AB7" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="289dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id= "@+id/editDescripcion"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="299dp"
-            android:background="#23673AB7"
-            android:hint="Descripción"
-            android:textColorHint="#673AB7" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textBanner"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="#5700F3"
+                android:gravity="center"
+                android:text="Nuevo Servicio"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold|italic" />
 
-    <EditText
-        android:id="@+id/editPlazo"
-        android:layout_width="match_parent"
-        android:layout_height="77dp"
-        android:ems="10"
-        android:hint="Plazo"
-        android:inputType="textPersonName"
-        android:textColorHint="#673AB7" />
+            <EditText
+                android:id="@+id/editTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:ems="10"
+                android:hint="Título"
+                android:inputType="textPersonName"
+                android:textColorHint="#673AB7" />
 
-    <EditText
-        android:id="@+id/editPrecio"
-        android:layout_width="match_parent"
-        android:layout_height="67dp"
-        android:ems="10"
-        android:hint="Precio"
-        android:inputType="textPersonName"
-        android:textColorHint="#673AB7" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnCrear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Crear" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id= "@+id/editDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="#23673AB7"
+                    android:hint="Descripción"
+                    android:textColorHint="#673AB7" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnCancelar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cancelar" />
+            <EditText
+                android:id="@+id/editPlazo"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:ems="10"
+                android:hint="Plazo en dias"
+                android:inputType="number"
+                android:textColorHint="#673AB7" />
+
+            <EditText
+                android:id="@+id/editPrecio"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:ems="10"
+                android:hint="Precio en pesos"
+                android:inputType="number"
+                android:textColorHint="#673AB7" />
+
+            <Button
+                android:id="@+id/btnCrear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crear" />
+
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cancelar" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
