@@ -1,4 +1,4 @@
-# Freelancer_App es una aplicación para android desarrollada en Java, la cual está doiseñada para facilitar la conección entre trabajadores 
+# Freelancer_App es una aplicación para android desarrollada en Java, la cual está diseñada para facilitar la conección entre trabajadores 
 independientes (Freelancers) y sus posibles clientes. Esto con el objetivo de hacer frente al aumento del desempleo a nivel nacional.
 
 Descripción: 
