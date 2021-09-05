@@ -13,7 +13,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="15dp"
         tools:ignore="MissingConstraints"
-        app:cardBackgroundColor="#59DCDB">
+        app:cardBackgroundColor="#93E3E2">
 
 
         <LinearLayout

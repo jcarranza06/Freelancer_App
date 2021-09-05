@@ -99,12 +99,13 @@ public class DataBase {
         Servicio[] servicios=gson.fromJson(resultado , Servicio[].class);
         return servicios[0];
     }
-    public static Servicio getServicioByUserId(int idPropietario){
-        URL=BaseURL+"getServicioByUserId.php?idPropietario="+idPropietario;
+    public static Servicio[] getServicioByUserId(int idPropietario){
+
+        URL=BaseURL+"getServiciosByUserId.php?idPropietario="+idPropietario;
         resultado = makeRequest(URL);
         Servicio[] servicios=gson.fromJson(resultado , Servicio[].class);
 
-        return servicios[0];
+        return servicios;
     }
     public static String addUsuario(String nombre, String clave, String correo,String pais,String descripcion) {
         URL=BaseURL+"agregarUsuario.php?nombre="+nombre+"&clave="+clave+"&correo="+correo+"&pais="+pais+"&descripcion="+descripcion;

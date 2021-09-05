@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     Usuario[] usuarios;
     Sesion sesion;
     TextView textoBienvenida;
+    Button btnMisPublicaciones;
+    Button btnSalir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +40,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                     StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
-
+        definirSesion();
         servicios=DataBase.getServicios();
         usuarios=DataBase.getUsuarios();
+        instanciarBotones();
 
-        definirSesion();
         setBuscador();
         setRecycler();
         textoBienvenida= (TextView)findViewById(R.id.textoBienvenida);
@@ -58,6 +61,24 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }catch (Exception e){
 
         }
+    }
+
+    public  void instanciarBotones(){
+        btnMisPublicaciones=(Button) findViewById(R.id.btnVerPublicaciones);
+        btnMisPublicaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent irServUser = new Intent(MainActivity.this, misPublicaciones.class);
+                startActivity(irServUser);
+            }
+        });
+        btnSalir=(Button) findViewById(R.id.btnSalir);
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     public void abrirCrearActivity(){
@@ -118,18 +139,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         recycler.setAdapter(adaptador);
     }
     public void definirSesion(){
-        /*try{
-            System.out.println("inicio serializable");
-            ObjectInputStream inputS = new ObjectInputStream(new FileInputStream("sesion.obj"));
-            Sesion.setUsuario((Usuario)inputS.readObject());
-            System.out.println("fin serializable");
-
-        }catch (Exception e){*/
+            System.out.println("abriendo login");
             Intent abrirLogin = new Intent(MainActivity.this, LoginCuenta.class);
             startActivity(abrirLogin);
-        //}
-        //Usuario a=usuarios[0];
-        //sesion = new Sesion(a);
+
     }
     public void abrirActivityServicioEspecifico(Servicio servicio){
         Intent abrirEspecifico = new Intent(MainActivity.this, MostrarServicio.class);

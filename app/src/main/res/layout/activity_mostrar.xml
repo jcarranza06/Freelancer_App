@@ -7,8 +7,10 @@
     <TextView
         android:id="@+id/tituloMostrar"
         android:layout_width="match_parent"
-        android:layout_height="102dp"
+        android:layout_height="90dp"
         android:background="#5600EF"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:gravity="center"
         android:text="[Título]"
         android:textAlignment="gravity"
@@ -20,6 +22,8 @@
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:isIndicator="true"
         android:numStars="5"
         android:stepSize="0.5"
@@ -27,47 +31,76 @@
 
     <TextView
         android:id="@+id/textView3"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="236dp"
+        android:layout_height="wrap_content"
         android:text="Descripción"
         android:textColor="#673AB7" />
 
     <TextView
         android:id="@+id/plazoMostrar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="wrap_content"
         android:text="Plazo"
         android:textColor="#673AB7" />
 
     <TextView
         android:id="@+id/precioMostrar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="15dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="63dp"
+        android:layout_height="wrap_content"
         android:text="Precio"
         android:textColor="#673AB7" />
 
     <TextView
         android:id="@+id/autorMostrar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         android:text="Autor"
         android:textColor="#673AB7" />
 
     <TextView
         android:id="@+id/emailMostrar"
+        android:layout_marginLeft="15dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
-        android:layout_height="53dp"
+        android:layout_height="wrap_content"
         android:text="Correo Electrónico"
         android:textColor="#673AB7" />
 
     <Button
         android:id="@+id/btnCalificar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Calificar" />
 
     <Button
         android:id="@+id/btnAtrasMostrar"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Atrás" />

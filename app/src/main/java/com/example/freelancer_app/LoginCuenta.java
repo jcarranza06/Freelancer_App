@@ -9,10 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-
 public class LoginCuenta extends AppCompatActivity {
     EditText correo;
     EditText clave;
@@ -40,7 +36,6 @@ public class LoginCuenta extends AppCompatActivity {
                     System.out.println(clave.getText().toString());
                     if (usuario.clave.equals(clave.getText().toString())){
                         Sesion.setUsuario(usuario);
-                        //guardarSesion(usuario);
                         finish();
                     }else{
                         Toast notificacionServicio = Toast.makeText(getApplicationContext(),
@@ -75,16 +70,6 @@ public class LoginCuenta extends AppCompatActivity {
         startActivity(abrirCrearU);
     }
 
-    public void guardarSesion(Usuario usuario){
-        try {
-            ObjectOutputStream outputS=new ObjectOutputStream(new FileOutputStream("sesion.obj"));
-            outputS.writeObject(usuario);
-            outputS.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
 
 

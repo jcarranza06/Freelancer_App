@@ -1,5 +1,6 @@
 package com.example.freelancer_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -20,13 +21,14 @@ public class MostrarServicio extends AppCompatActivity {
     TextView emailMostrar;
     Button calificar;
     Button btnAtrasMostrar;
+    Bundle parametros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrar);
 
-        Bundle parametros= this.getIntent().getExtras();
+        parametros= this.getIntent().getExtras();
 
         textView3 = findViewById(R.id.textView3);
         textView3.setMovementMethod(new ScrollingMovementMethod());
@@ -42,20 +44,33 @@ public class MostrarServicio extends AppCompatActivity {
         btnAtrasMostrar = (Button)findViewById(R.id.btnAtrasMostrar);
 
         instanciarbtnAtrasMostrar();
+        instanciarbtnCalificar();
 
         if(parametros!=null){
             tituloMostrar.setText(parametros.getString("titulo"));
             ratingBar.setRating(parametros.getInt("calificacion"));
-            textView3.setText(parametros.getString("descripcion"));
-            plazoMostrar.setText(parametros.getString("plazo"));
-            precioMostrar.setText(parametros.getString("precio"));
-            autorMostrar.setText(parametros.getString("autor"));
-            emailMostrar.setText(parametros.getString("email"));
+            textView3.setText("Descripcion: "+parametros.getString("descripcion"));
+            plazoMostrar.setText("Plazo: "+Integer.toString(parametros.getInt("plazo")) +" dias");
+            precioMostrar.setText("Precio: $"+Integer.toString(parametros.getInt("precio")));
+            autorMostrar.setText("Propietario: "+DataBase.getUsuarioById(parametros.getInt("idPropietario")).nombre);
+            emailMostrar.setText("Correo: "+ DataBase.getUsuarioById(parametros.getInt("idPropietario")).correo);
 
         }
 
-    }
 
+    }
+    public void instanciarbtnCalificar(){
+        calificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent irCalificar=new Intent(MostrarServicio.this, com.example.freelancer_app.calificar.class);
+                Bundle parametros1 =new Bundle();
+                parametros1.putInt("id",parametros.getInt("id"));
+                irCalificar.putExtras(parametros1);
+                startActivity(irCalificar);
+            }
+        });
+    }
 
     public void instanciarbtnAtrasMostrar(){
         btnAtrasMostrar=(Button) findViewById(R.id.btnAtrasMostrar);
@@ -66,4 +81,6 @@ public class MostrarServicio extends AppCompatActivity {
             }
         });
     }
+
+    
 }
