@@ -13,7 +13,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="15dp"
         tools:ignore="MissingConstraints"
-        app:cardBackgroundColor="#93E3E2">
+        style="@style/servicioLayout">
 
 
         <LinearLayout
@@ -25,7 +25,9 @@
                 android:id="@+id/titulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="22dp"
                 android:layout_marginBottom="8dp"
                 android:text="TextView"
                 android:textSize="24sp"
@@ -36,7 +38,7 @@
                 android:id="@+id/precio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
+                android:layout_marginLeft="22dp"
                 android:layout_marginBottom="8dp"
                 android:text="TextView"
                 android:textSize="21sp"
@@ -47,10 +49,11 @@
                 android:id="@+id/descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="32dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
                 android:text="TextView"
                 android:textSize="20sp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 tools:ignore="MissingConstraints" />
         </LinearLayout>
 

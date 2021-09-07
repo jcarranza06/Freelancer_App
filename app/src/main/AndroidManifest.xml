@@ -14,16 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Freelancer_App">
         <activity
-            android:name=".calificar"
+            android:name=".layouts.calificar"
             android:exported="true" />
         <activity
-            android:name=".publicacion_Layout"
+            android:name=".layouts.publicacion_Layout"
             android:exported="true" />
         <activity
-            android:name=".misPublicaciones"
+            android:name=".layouts.misPublicaciones"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".layouts.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,16 +32,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CrearServicio"
+            android:name=".layouts.CrearServicio"
             android:exported="true" />
         <activity
-            android:name=".MostrarServicio"
+            android:name=".layouts.MostrarServicio"
             android:exported="true" />
         <activity
-            android:name=".LoginCuenta"
+            android:name=".layouts.LoginCuenta"
             android:exported="true" />
         <activity
-            android:name=".CrearUsuario"
+            android:name=".layouts.CrearUsuario"
             android:exported="true" />
     </application>
 
